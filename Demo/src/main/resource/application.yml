@@ -1,0 +1,24 @@
+server:
+  port: 8080
+  servlet:
+      context-path: /
+spring:
+  datasource:
+      username: root
+      password: shenhaobo
+      url: jdbc:mysql://localhost:3306/jingdongdb?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+      driver-class-name: com.mysql.jdbc.Driver
+  redis:
+      database: 0
+      host: 192.168.1.2
+      port: 6379
+      jedis:
+        pool:
+          max-active: 8
+          max-wait: -1ms
+          max-idle: 8
+          min-idle: 0
+      timeout: 2000ms
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.shen.backstage.dao

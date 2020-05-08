@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--与接口的位置对应-->
+<mapper namespace="com.shen.backstage.dao.JdMapper">
+    <insert id="insert" parameterType="java.util.List">
+        INSERT INTO tb_jd_info(pk, item_id, item_name, item_price, item_img_url, item_url, shop_name, comment_number, shop_url, crawler_time, type) VALUES
+        <foreach collection="JdModels" item="item" index="index" separator=",">
+            (UUID(),#{item.itemId},#{item.itemName},#{item.itemPrice},#{item.itemImgUrl},#{item.itemUrl},#{item.shopName},#{item.commentNumber},#{item.shopUrl},#{item.crawlerTime},#{item.type})
+        </foreach>
+    </insert>
+</mapper>
